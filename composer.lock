@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be5dd990ac7881269275030793613ca9",
+    "hash": "86f5d597dc6b985683e096dc577d28ee",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -1677,57 +1677,6 @@
             "time": "2014-10-17 12:53:44"
         },
         {
-            "name": "twitter/bootstrap",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "403799023709c0cba0375258b7d8fb59356a4bf8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/403799023709c0cba0375258b7d8fb59356a4bf8",
-                "reference": "403799023709c0cba0375258b7d8fb59356a4bf8",
-                "shasum": ""
-            },
-            "replace": {
-                "twitter/bootstrap": "self.version"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jacob Thornton",
-                    "email": "jacobthornton@gmail.com"
-                },
-                {
-                    "name": "Mark Otto",
-                    "email": "markdotto@gmail.com"
-                }
-            ],
-            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-            "homepage": "http://getbootstrap.com",
-            "keywords": [
-                "JS",
-                "css",
-                "framework",
-                "front-end",
-                "less",
-                "mobile-first",
-                "responsive",
-                "web"
-            ],
-            "time": "2014-11-18 02:19:55"
-        },
-        {
             "name": "xsolve-pl/xsolve-bootstrap-crud-bundle",
             "version": "dev-master",
             "target-dir": "Xsolve/BootstrapCrudBundle",
@@ -1829,7 +1778,6 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "twitter/bootstrap": 20,
         "xsolve-pl/xsolve-bootstrap-crud-bundle": 20
     },
     "prefer-stable": false,

@@ -1,3 +1,7 @@
+eleicao_adm_partido:
+    resource: "@EleicaoAdmBundle/Resources/config/routing/partido.yml"
+    prefix:   /partido
+
 eleicao_adm_homepage:
     path:     /adm
     defaults: { _controller: EleicaoAdmBundle:Default:index }

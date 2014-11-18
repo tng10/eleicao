@@ -18,7 +18,6 @@
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
-        "twitter/bootstrap": "dev-master",
         "xsolve-pl/xsolve-bootstrap-crud-bundle": "dev-master"
     },
     "require-dev": {

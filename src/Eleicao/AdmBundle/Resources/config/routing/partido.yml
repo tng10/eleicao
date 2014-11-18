@@ -1,0 +1,30 @@
+partido:
+    pattern:  /
+    defaults: { _controller: "EleicaoAdmBundle:Partido:index" }
+
+partido_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EleicaoAdmBundle:Partido:show" }
+
+partido_new:
+    pattern:  /new
+    defaults: { _controller: "EleicaoAdmBundle:Partido:new" }
+
+partido_create:
+    pattern:  /create
+    defaults: { _controller: "EleicaoAdmBundle:Partido:create" }
+    requirements: { _method: post }
+
+partido_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EleicaoAdmBundle:Partido:edit" }
+
+partido_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EleicaoAdmBundle:Partido:update" }
+    requirements: { _method: post|put }
+
+partido_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EleicaoAdmBundle:Partido:delete" }
+    requirements: { _method: post|delete }
