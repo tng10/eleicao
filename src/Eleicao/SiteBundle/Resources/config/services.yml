@@ -1,0 +1,4 @@
+services:
+#    eleicao_site.example:
+#        class: Eleicao\SiteBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,3 @@
+eleicao_site_homepage:
+    path:     /
+    defaults: { _controller: EleicaoSiteBundle:Default:index }

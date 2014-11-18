@@ -1,0 +1,8 @@
+eleicao_site:
+    resource: "@EleicaoSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+eleicao_adm:
+    resource: "@EleicaoAdmBundle/Resources/config/routing.yml"
+    prefix:   /
+
