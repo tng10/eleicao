@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Candidato</h1>
+
+    <table class="record_properties table table-condensed table-hover">
+        <tbody>
+            <tr>
+                <th>Nome</th>
+                <td>{{ entity.nome }}</td>
+            </tr>
+            <tr>
+                <th>Número do candidato</th>
+                <td>{{ entity.numero }}</td>
+            </tr>
+            <tr>
+                <th>Partido</th>
+                <td>{{ entity.partido }}</td>
+            </tr>
+            <tr>
+                <th>Sigla do partido</th>
+                <td>{{ entity.partido.sigla }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn" href="{{ path('candidato') }}">
+        Back to the list
+    </a>
+
+
+    <a class="btn btn-success" href="{{ path('candidato_edit', { 'id': entity.id }) }}">
+        Edit
+    </a>
+     
+    <form action="{{ path('candidato_delete', { 'id': entity.id }) }}" method="post" style="float:right">
+        <button class="btn btn-danger" type="submit" onclick="return confirm('Do you really want to remove this element?');">Delete</button>
+        <input type="hidden" name="_method" value="DELETE" />
+        {{ form_widget(delete_form) }}
+    </form>
+{% endblock %}

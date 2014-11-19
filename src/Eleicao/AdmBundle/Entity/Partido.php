@@ -135,4 +135,9 @@ class Partido
     {
         return $this->candidatos;
     }
+
+    public function __toString()
+    {
+        return $this->nome;
+    }
 }

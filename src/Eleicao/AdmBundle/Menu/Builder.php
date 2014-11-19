@@ -22,7 +22,9 @@ class Builder extends ContainerAware
         $menu = $factory->createItem('root')->setChildrenAttributes(array('class'=>'nav'));
 
         // Regular menu item, no change
-        $menu->addChild('Menu item', array('uri' => '#menuitem'));
+        $menu->addChild('Partido', array('route' => 'partido'));
+        $menu->addChild('Candidato', array('route' => 'candidato'));
+        $menu->addChild('Proposta', array('route' => 'proposta'));
         // $menu->addChild('Curso', array('route' => 'curso'));
         // $menu->addChild('Disciplina', array('route' => 'disciplina'));
         // $menu->addChild('Professor', array('route' => 'professor'));

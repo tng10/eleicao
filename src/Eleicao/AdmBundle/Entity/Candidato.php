@@ -30,6 +30,13 @@ class Candidato
     private $nome;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="numero", type="integer")
+     */
+    private $numero;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Partido", inversedBy="candidatos")
      * @ORM\JoinColumn(name="partido_id", referencedColumnName="id")
      */
@@ -83,6 +90,29 @@ class Candidato
     public function getNome()
     {
         return $this->nome;
+    }
+
+    /**
+     * Set numero
+     *
+     * @param int $numero
+     * @return Candidato
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+
+        return $this;
+    }
+
+    /**
+     * Get numero
+     *
+     * @return int 
+     */
+    public function getNumero()
+    {
+        return $this->numero;
     }
 
     /**
@@ -172,5 +202,10 @@ class Candidato
     public function getVotacoes()
     {
         return $this->votacoes;
+    }
+
+    public function __toString()
+    {
+        return $this->nome;
     }
 }

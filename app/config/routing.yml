@@ -4,5 +4,5 @@ eleicao_site:
 
 eleicao_adm:
     resource: "@EleicaoAdmBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /adm
 

@@ -1,0 +1,30 @@
+candidato:
+    pattern:  /
+    defaults: { _controller: "EleicaoAdmBundle:Candidato:index" }
+
+candidato_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EleicaoAdmBundle:Candidato:show" }
+
+candidato_new:
+    pattern:  /new
+    defaults: { _controller: "EleicaoAdmBundle:Candidato:new" }
+
+candidato_create:
+    pattern:  /create
+    defaults: { _controller: "EleicaoAdmBundle:Candidato:create" }
+    requirements: { _method: post }
+
+candidato_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EleicaoAdmBundle:Candidato:edit" }
+
+candidato_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EleicaoAdmBundle:Candidato:update" }
+    requirements: { _method: post|put }
+
+candidato_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EleicaoAdmBundle:Candidato:delete" }
+    requirements: { _method: post|delete }

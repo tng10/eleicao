@@ -1,0 +1,30 @@
+proposta:
+    pattern:  /
+    defaults: { _controller: "EleicaoAdmBundle:Proposta:index" }
+
+proposta_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EleicaoAdmBundle:Proposta:show" }
+
+proposta_new:
+    pattern:  /new
+    defaults: { _controller: "EleicaoAdmBundle:Proposta:new" }
+
+proposta_create:
+    pattern:  /create
+    defaults: { _controller: "EleicaoAdmBundle:Proposta:create" }
+    requirements: { _method: post }
+
+proposta_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EleicaoAdmBundle:Proposta:edit" }
+
+proposta_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EleicaoAdmBundle:Proposta:update" }
+    requirements: { _method: post|put }
+
+proposta_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EleicaoAdmBundle:Proposta:delete" }
+    requirements: { _method: post|delete }
