@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Eleicao\AdmBundle\Entity\Candidato;
+use Eleicao\AdmBundle\Entity\Votacao;
 use Eleicao\AdmBundle\Form\CandidatoType;
 
 /**
@@ -41,6 +42,16 @@ class CandidatoController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $em->persist($entity);
+            $em->flush();
+
+            $votacao = new Votacao();
+            $votacao->setVotos(0);
+            $votacao->setCandidato($entity);
+
+            $entity->addVotacao($votacao);
+
             $em->persist($entity);
             $em->flush();
 

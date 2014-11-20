@@ -29,7 +29,7 @@ class Votacao
     private $votos;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Candidato", inversedBy="votacoes", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Candidato", inversedBy="votacoes", cascade={"all"})
      * @ORM\JoinColumn(name="candidato_id", referencedColumnName="id")
      */
     protected $candidato;
@@ -69,25 +69,25 @@ class Votacao
     }
 
     /**
-     * Set partido
+     * Set candidato
      *
-     * @param \Eleicao\AdmBundle\Entity\Candidato $partido
+     * @param \Eleicao\AdmBundle\Entity\Candidato $candidato
      * @return Votacao
      */
-    public function setPartido(\Eleicao\AdmBundle\Entity\Candidato $partido = null)
+    public function setCandidato(\Eleicao\AdmBundle\Entity\Candidato $candidato = null)
     {
-        $this->partido = $partido;
+        $this->candidato = $candidato;
 
         return $this;
     }
 
     /**
-     * Get partido
+     * Get candidato
      *
      * @return \Eleicao\AdmBundle\Entity\Candidato 
      */
-    public function getPartido()
+    public function getCandidato()
     {
-        return $this->partido;
+        return $this->candidato;
     }
 }
