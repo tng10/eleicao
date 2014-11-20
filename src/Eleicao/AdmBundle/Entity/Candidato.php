@@ -62,7 +62,7 @@ class Candidato
     protected $propostas;
 
     /**
-     * @ORM\OneToMany(targetEntity="Votacao", mappedBy="candidato")
+     * @ORM\OneToMany(targetEntity="Votacao", mappedBy="candidato", cascade={"persist", "remove"})
      */
     protected $votacoes;
 

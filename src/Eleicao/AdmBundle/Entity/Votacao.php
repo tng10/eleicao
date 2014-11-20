@@ -29,7 +29,7 @@ class Votacao
     private $votos;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Candidato", inversedBy="votacoes")
+     * @ORM\ManyToOne(targetEntity="Candidato", inversedBy="votacoes", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="candidato_id", referencedColumnName="id")
      */
     protected $candidato;
