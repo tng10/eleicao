@@ -29,29 +29,12 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
-# Assetic Configuration
-# assetic:
-#     debug:          "%kernel.debug%"
-#     use_controller: false
-#     bundles:        [ ]
-#     #java: /usr/bin/java
-#     filters:
-#         cssrewrite: ~
-#         #closure:
-#         #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
-#         #yui_css:
-#         #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
-
 assetic: 
     debug: %kernel.debug% 
     use_controller: false 
-    bundles: [ XsolveBootstrapCrudBundle, EleicaoAdmBundle, EleicaoSiteBundle ]
+    bundles: [ EleicaoAdmBundle, EleicaoSiteBundle ]
     filters: 
-        cssrewrite: ~ 
-        less: 
-            node: /usr/bin/node 
-            node_paths: [/usr/lib/node_modules]
-            apply_to: ".less$"
+        cssrewrite: ~
 
 # Doctrine Configuration
 doctrine:
