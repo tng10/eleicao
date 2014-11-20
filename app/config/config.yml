@@ -47,11 +47,11 @@ assetic:
     use_controller: false 
     bundles: [ XsolveBootstrapCrudBundle, EleicaoAdmBundle, EleicaoSiteBundle ]
     filters: 
+        cssrewrite: ~ 
         less: 
             node: /usr/bin/node 
             node_paths: [/usr/lib/node_modules]
-        cssrewrite: ~ 
-            # apply_to: ".less$"
+            apply_to: ".less$"
 
 # Doctrine Configuration
 doctrine:

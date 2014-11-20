@@ -37,6 +37,13 @@ class Partido
     private $nome;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="sobre", type="text")
+     */
+    private $sobre;
+
+    /**
      * @ORM\OneToMany(targetEntity="Candidato", mappedBy="partido")
      */
     protected $candidatos;
@@ -101,6 +108,29 @@ class Partido
     public function getNome()
     {
         return $this->nome;
+    }
+
+    /**
+     * Set sobre
+     *
+     * @param string $sobre
+     * @return Candidato
+     */
+    public function setSobre($sobre)
+    {
+        $this->sobre = $sobre;
+
+        return $this;
+    }
+
+    /**
+     * Get sobre
+     *
+     * @return string 
+     */
+    public function getSobre()
+    {
+        return $this->sobre;
     }
 
     /**

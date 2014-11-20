@@ -1,0 +1,3 @@
+site_candidato:
+    path:     /
+    defaults: { _controller: EleicaoSiteBundle:Candidato:index }

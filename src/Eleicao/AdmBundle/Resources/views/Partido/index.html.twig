@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Partido list</h1>
+    <h1>Partidos</h1>
 
     {% if entities %}
     <table class="records_list table table-condensed table-hover">
@@ -9,7 +9,7 @@
             <tr>
                 <th>Sigla</th>
                 <th>Nome</th>
-                <th>Actions</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -18,8 +18,8 @@
                 <td>{{ entity.sigla }}</td>
                 <td>{{ entity.nome }}</td>
                 <td>
-                    <a class="btn" href="{{ path('partido_show', { 'id': entity.id }) }}">show</a>
-                    <a class="btn" href="{{ path('partido_edit', { 'id': entity.id }) }}">edit</a>                
+                    <a class="btn btn-info" href="{{ path('partido_show', { 'id': entity.id }) }}">exibir</a>
+                    <a class="btn btn-info" href="{{ path('partido_edit', { 'id': entity.id }) }}">editar</a>                
                 </td>
             </tr>
         {% endfor %}
@@ -31,7 +31,7 @@
         </div>
     {% endif %}
 
-        <a class="btn btn-success" href="{{ path('partido_new') }}">
-        Create a new entry
+    <a class="btn btn-success" href="{{ path('partido_new') }}">
+        Novo registro
     </a>
 {% endblock %}

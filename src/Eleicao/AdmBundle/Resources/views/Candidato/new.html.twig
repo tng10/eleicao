@@ -1,18 +1,16 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1>Candidato creation</h1>
+    <h1>Novo Candidato</h1>
 
     <form class="form-horizontal" action="{{ path('candidato_create') }}" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form, {'form_type': 'horizontal'}) }}
         <div class="control-group">
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Create</button>
-                                <a class="btn" href="{{ path('candidato') }}">
-    Back to the list
-</a>
-
-
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a class="btn btn-info" href="{{ path('candidato') }}">
+                    Listar registros
+                </a>
             </div>
         </div>
     </form>

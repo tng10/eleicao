@@ -13,6 +13,17 @@ class CandidatoType extends AbstractType
         $builder
             ->add('nome')
             ->add('numero')
+            ->add('cargo','choice',
+                array(
+                    'choices'=>
+                    (
+                        array(
+                            'Presidência da República' => 'Presidência da República'
+                        )
+                    )
+                )
+            )
+            ->add('sobre')
             ->add('partido')
         ;
     }

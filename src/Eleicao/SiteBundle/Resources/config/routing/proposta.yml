@@ -1,0 +1,3 @@
+site_proposta:
+    path:     /
+    defaults: { _controller: EleicaoSiteBundle:Proposta:index }

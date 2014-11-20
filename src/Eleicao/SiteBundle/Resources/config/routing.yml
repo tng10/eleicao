@@ -1,3 +1,20 @@
 eleicao_site_homepage:
     path:     /
     defaults: { _controller: EleicaoSiteBundle:Default:index }
+
+eleicao_site_partido:
+    resource: "@EleicaoSiteBundle/Resources/config/routing/partido.yml"
+    prefix:   /partidos
+
+eleicao_site_candidato:
+    resource: "@EleicaoSiteBundle/Resources/config/routing/candidato.yml"
+    prefix:   /candidatos
+
+eleicao_site_proposta:
+    resource: "@EleicaoSiteBundle/Resources/config/routing/proposta.yml"
+    prefix:   /propostas
+
+eleicao_site_votacao:
+    resource: "@EleicaoSiteBundle/Resources/config/routing/votacao.yml"
+    prefix:   /votacao
+

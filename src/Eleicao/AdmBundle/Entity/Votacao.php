@@ -32,7 +32,7 @@ class Votacao
      * @ORM\ManyToOne(targetEntity="Candidato", inversedBy="votacoes")
      * @ORM\JoinColumn(name="candidato_id", referencedColumnName="id")
      */
-    protected $partido;
+    protected $candidato;
 
 
     /**

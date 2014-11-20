@@ -13,6 +13,7 @@ class PartidoType extends AbstractType
         $builder
             ->add('sigla')
             ->add('nome')
+            ->add('sobre')
         ;
     }
 

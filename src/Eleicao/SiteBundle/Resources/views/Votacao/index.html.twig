@@ -1,0 +1,38 @@
+{% extends 'EleicaoSiteBundle::layout.html.twig' %}
+
+{% block title %}Votação{% endblock %}
+
+{% block sectioncontent %}
+	
+	{% set numCandidatos = candidatos | length %}
+	{% set numVotos = 0 %}
+
+	{% for candidato in candidatos %}
+		{% for v in candidato.votacoes %}
+			{% set numVotos = numVotos + v.votos %}
+		{% endfor %}
+	{% endfor %}
+
+	<h3>Total de votos: {{ numVotos | number_format(0,2) }}</h3>
+					
+	<div class="divider"></div>
+
+	<h3>Percentual</h3>
+
+	{% for candidato in candidatos %}
+
+		{% for v in candidato.votacoes %}
+			{% set percentual = (v.votos * 100) / numVotos %}
+			
+			<p>{{ candidato ~ ' - ' ~ candidato.partido.sigla }}</p>
+
+			<div class="progressbar" data-percent="{{ percentual }}">
+				<span class="progress-percent"></span>
+				<div class="progress-width"></div>
+			</div>
+
+		{% endfor %}
+
+	{% endfor %}
+
+{% endblock %}

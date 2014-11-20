@@ -30,6 +30,20 @@ class Candidato
     private $nome;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="cargo", type="string", length=100)
+     */
+    private $cargo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sobre", type="text")
+     */
+    private $sobre;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="numero", type="integer")
@@ -90,6 +104,52 @@ class Candidato
     public function getNome()
     {
         return $this->nome;
+    }
+
+    /**
+     * Set cargo
+     *
+     * @param string $cargo
+     * @return Candidato
+     */
+    public function setCargo($cargo)
+    {
+        $this->cargo = $cargo;
+
+        return $this;
+    }
+
+    /**
+     * Get cargo
+     *
+     * @return string 
+     */
+    public function getCargo()
+    {
+        return $this->cargo;
+    }
+
+    /**
+     * Set sobre
+     *
+     * @param string $sobre
+     * @return Candidato
+     */
+    public function setSobre($sobre)
+    {
+        $this->sobre = $sobre;
+
+        return $this;
+    }
+
+    /**
+     * Get sobre
+     *
+     * @return string 
+     */
+    public function getSobre()
+    {
+        return $this->sobre;
     }
 
     /**
@@ -177,7 +237,7 @@ class Candidato
      * @param \Eleicao\AdmBundle\Entity\Votacao $votacoes
      * @return Candidato
      */
-    public function addVotaco(\Eleicao\AdmBundle\Entity\Votacao $votacoes)
+    public function addVotacao(\Eleicao\AdmBundle\Entity\Votacao $votacoes)
     {
         $this->votacoes[] = $votacoes;
 
@@ -189,7 +249,7 @@ class Candidato
      *
      * @param \Eleicao\AdmBundle\Entity\Votacao $votacoes
      */
-    public function removeVotaco(\Eleicao\AdmBundle\Entity\Votacao $votacoes)
+    public function removeVotacao(\Eleicao\AdmBundle\Entity\Votacao $votacoes)
     {
         $this->votacoes->removeElement($votacoes);
     }

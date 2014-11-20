@@ -1,0 +1,39 @@
+{% extends 'EleicaoSiteBundle::layout.html.twig' %}
+
+{% block title %}Candidatos{% endblock %}
+
+{% block sectioncontent %}
+	
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="animate-onscroll">
+				<h1>Conheça mais sobre os candidatos dessa eleição</h1>
+				<p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue. Nam elit agna,endrerit sit amet, tincidunt ac, viverra sed, nulla. Donec porta diam eu massa. Quisque diam lorem, interdum vitae,dapibus ac, scelerisque vitae, pede. Donec eget tellus non erat lacinia fermentum. </p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">				
+			<h3 class="animate-onscroll no-margin-top">Conheça os candidatos</h3>
+			<div class="row">
+				{% for candidato in candidatos %}
+					<!-- Team Member -->
+					<div class="team-member animate-onscroll big">
+						<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/1.jpg') }}" alt="">
+						<div class="team-member-info">
+							<h2>{{ candidato }}</h2>
+							<span class="job">{{ candidato.cargo }}</span>
+							<div class="team-member-more">
+								<p>{{ candidato.sobre }}</p>
+								{% include 'EleicaoSiteBundle:Default:media.html.twig' %}
+							</div>							
+						</div>
+					</div>
+					<!-- /Team Member -->					
+				{% endfor %}
+			</div>
+		</div>
+	</div>			
+
+{% endblock %}

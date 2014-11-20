@@ -44,7 +44,7 @@ class PropostaController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'The entry is successfuly added!');
+            $this->get('session')->getFlashBag()->add('notice', 'Novo registro cadastrado com sucesso!');
 
             return $this->redirect($this->generateUrl('proposta_show', array('id' => $entity->getId())));
         }
@@ -81,7 +81,7 @@ class PropostaController extends Controller
         $entity = $em->getRepository('EleicaoAdmBundle:Proposta')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Proposta entity.');
+            throw $this->createNotFoundException('Não foi possível encontrar este proposta.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -102,7 +102,7 @@ class PropostaController extends Controller
         $entity = $em->getRepository('EleicaoAdmBundle:Proposta')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Proposta entity.');
+            throw $this->createNotFoundException('Não foi possível encontrar este proposta.');
         }
 
         $editForm = $this->createForm(new PropostaType(), $entity);
@@ -126,7 +126,7 @@ class PropostaController extends Controller
         $entity = $em->getRepository('EleicaoAdmBundle:Proposta')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Proposta entity.');
+            throw $this->createNotFoundException('Não foi possível encontrar este proposta.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -136,7 +136,7 @@ class PropostaController extends Controller
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('notice', 'Your changes were saved!');
+            $this->get('session')->getFlashBag()->add('notice', 'Edição feita com sucesso!');
 
             return $this->redirect($this->generateUrl('proposta_edit', array('id' => $id)));
         }
@@ -161,13 +161,13 @@ class PropostaController extends Controller
             $entity = $em->getRepository('EleicaoAdmBundle:Proposta')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Proposta entity.');
+                throw $this->createNotFoundException('Não foi possível encontrar este proposta.');
             }
 
             $em->remove($entity);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'The entry is deleted!');
+            $this->get('session')->getFlashBag()->add('notice', 'Registro deletado com sucesso!');
         }
 
         return $this->redirect($this->generateUrl('proposta'));

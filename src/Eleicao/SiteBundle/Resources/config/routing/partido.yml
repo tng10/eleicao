@@ -1,0 +1,3 @@
+site_partido:
+    path:     /
+    defaults: { _controller: EleicaoSiteBundle:Partido:index }

@@ -1,0 +1,3 @@
+site_votacao:
+    path:     /
+    defaults: { _controller: EleicaoSiteBundle:Votacao:index }

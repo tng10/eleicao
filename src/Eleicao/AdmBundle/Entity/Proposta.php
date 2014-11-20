@@ -24,6 +24,13 @@ class Proposta
     /**
      * @var string
      *
+     * @ORM\Column(name="titulo", type="string", length=100)
+     */
+    private $titulo;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="texto", type="text")
      */
     private $texto;
@@ -43,6 +50,29 @@ class Proposta
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set titulo
+     *
+     * @param string $titulo
+     * @return Proposta
+     */
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
+
+        return $this;
+    }
+
+    /**
+     * Get titulo
+     *
+     * @return string 
+     */
+    public function getTitulo()
+    {
+        return $this->titulo;
     }
 
     /**
@@ -89,5 +119,10 @@ class Proposta
     public function getCandidato()
     {
         return $this->candidato;
+    }
+
+    public function __toString()
+    {
+        return $this->titulo;
     }
 }

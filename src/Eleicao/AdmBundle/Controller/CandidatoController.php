@@ -44,7 +44,7 @@ class CandidatoController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'The entry is successfuly added!');
+            $this->get('session')->getFlashBag()->add('notice', 'Novo registro cadastrado com sucesso!');
 
             return $this->redirect($this->generateUrl('candidato_show', array('id' => $entity->getId())));
         }
@@ -81,14 +81,15 @@ class CandidatoController extends Controller
         $entity = $em->getRepository('EleicaoAdmBundle:Candidato')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Candidato entity.');
+            throw $this->createNotFoundException('Não foi possível encontrar este candidato.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('EleicaoAdmBundle:Candidato:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),      
+        ));
     }
 
     /**
@@ -102,7 +103,7 @@ class CandidatoController extends Controller
         $entity = $em->getRepository('EleicaoAdmBundle:Candidato')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Candidato entity.');
+            throw $this->createNotFoundException('Não foi possível encontrar este candidato.');
         }
 
         $editForm = $this->createForm(new CandidatoType(), $entity);
@@ -126,7 +127,7 @@ class CandidatoController extends Controller
         $entity = $em->getRepository('EleicaoAdmBundle:Candidato')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Candidato entity.');
+            throw $this->createNotFoundException('Não foi possível encontrar este candidato.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -136,7 +137,7 @@ class CandidatoController extends Controller
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
-            $this->get('session')->getFlashBag()->add('notice', 'Your changes were saved!');
+            $this->get('session')->getFlashBag()->add('notice', 'Edição feita com sucesso!');
 
             return $this->redirect($this->generateUrl('candidato_edit', array('id' => $id)));
         }
@@ -161,13 +162,13 @@ class CandidatoController extends Controller
             $entity = $em->getRepository('EleicaoAdmBundle:Candidato')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Candidato entity.');
+                throw $this->createNotFoundException('Não foi possível encontrar este candidato.');
             }
 
             $em->remove($entity);
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('notice', 'The entry is deleted!');
+            $this->get('session')->getFlashBag()->add('notice', 'Registro deletado com sucesso!');
         }
 
         return $this->redirect($this->generateUrl('candidato'));

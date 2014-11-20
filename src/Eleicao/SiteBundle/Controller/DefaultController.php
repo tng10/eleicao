@@ -8,6 +8,16 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('EleicaoSiteBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $partidos = $em->getRepository('EleicaoAdmBundle:Partido')->findAll();
+        $candidatos = $em->getRepository('EleicaoAdmBundle:Candidato')->findAll();
+        $propostas = $em->getRepository('EleicaoAdmBundle:Proposta')->findAll();
+
+        return $this->render('EleicaoSiteBundle:Default:index.html.twig', array(
+			'partidos' => $partidos,
+			'candidatos' => $candidatos,
+			'propostas' => $propostas,
+        ));    
     }
 }

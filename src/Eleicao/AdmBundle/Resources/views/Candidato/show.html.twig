@@ -21,20 +21,28 @@
                 <th>Sigla do partido</th>
                 <td>{{ entity.partido.sigla }}</td>
             </tr>
+            <tr>
+                <th>Cargo pretendido</th>
+                <td>{{ entity.cargo }}</td>
+            </tr>
+            <tr>
+                <th>Sobre o candidato</th>
+                <td>{{ entity.sobre }}</td>
+            </tr>
         </tbody>
     </table>
 
-    <a class="btn" href="{{ path('candidato') }}">
-        Back to the list
+    <a class="btn btn-info" href="{{ path('candidato') }}">
+        Listar registros
     </a>
 
 
     <a class="btn btn-success" href="{{ path('candidato_edit', { 'id': entity.id }) }}">
-        Edit
+        Editar
     </a>
      
     <form action="{{ path('candidato_delete', { 'id': entity.id }) }}" method="post" style="float:right">
-        <button class="btn btn-danger" type="submit" onclick="return confirm('Do you really want to remove this element?');">Delete</button>
+        <button class="btn btn-danger" type="submit" onclick="return confirm('Do you really want to remove this element?');">Deletar</button>
         <input type="hidden" name="_method" value="DELETE" />
         {{ form_widget(delete_form) }}
     </form>
