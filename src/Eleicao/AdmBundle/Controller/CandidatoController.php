@@ -43,6 +43,13 @@ class CandidatoController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
+            $entities = $em->getRepository('EleicaoAdmBundle:Candidato')->findBy(array('partido' => $entity->getPartido()));
+            if ($entities)
+            {
+                $this->get('session')->getFlashBag()->add('notice', 'Não foi possível cadastrar, pois já existe um candidato vinculado a este partido!');
+                return $this->redirect($this->generateUrl('candidato'));
+            }
+
             $imagem = $form['imagem']->getData();
 
             if ($imagem)
@@ -159,6 +166,13 @@ class CandidatoController extends Controller
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+
+            $entities = $em->getRepository('EleicaoAdmBundle:Candidato')->findBy(array('partido' => $entity->getPartido()));
+            if ($entities)
+            {
+                $this->get('session')->getFlashBag()->add('notice', 'Não foi possível editar, pois já existe um candidato vinculado a este partido!');
+                return $this->redirect($this->generateUrl('candidato'));
+            }
 
             if ($nomeImagemAtual != $entity->getImagem())
             {
