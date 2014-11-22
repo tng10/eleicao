@@ -38,7 +38,7 @@
     </a>
     
     <form action="{{ path('proposta_delete', { 'id': entity.id }) }}" method="post" style="float:right">
-        <button class="btn btn-danger" type="submit" onclick="return confirm('Do you really want to remove this element?');">Deletar</button>
+        <button class="btn btn-danger" type="submit" onclick="return confirm('Você tem certeza que deseja deletar este registro?');">Deletar</button>
         <input type="hidden" name="_method" value="DELETE" />
         {{ form_widget(delete_form) }}
     </form>

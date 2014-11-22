@@ -44,7 +44,14 @@ class Partido
     private $sobre;
 
     /**
-     * @ORM\OneToMany(targetEntity="Candidato", mappedBy="partido")
+     * @var string
+     *
+     * @ORM\Column(name="imagem", type="string", length=32)
+     */
+    private $imagem;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Candidato", mappedBy="partido", cascade={"all"})
      */
     protected $candidatos;
 
@@ -131,6 +138,29 @@ class Partido
     public function getSobre()
     {
         return $this->sobre;
+    }
+
+    /**
+     * Set imagem
+     *
+     * @param string $imagem
+     * @return Partido
+     */
+    public function setImagem($imagem)
+    {
+        $this->imagem = $imagem;
+
+        return $this;
+    }
+
+    /**
+     * Get imagem
+     *
+     * @return string 
+     */
+    public function getImagem()
+    {
+        return $this->imagem;
     }
 
     /**

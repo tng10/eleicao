@@ -21,7 +21,11 @@
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<!-- Team Member -->
 						<div class="team-member animate-onscroll ">
-							<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/8.jpg') }}" alt="">
+							{% if partido.imagem is empty %}
+								<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/8.jpg') }}" alt="">
+							{% else %}
+								<img class="team-member-image" src="{{ asset('uploads/' ~ partido.imagem ) }}" alt="">
+							{% endif %}
 							<div class="team-member-info">
 								<h2>{{ partido.sigla }}</h2>
 								<span class="job">{{ partido }}</span>
@@ -46,7 +50,11 @@
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<!-- Team Member -->
 						<div class="team-member animate-onscroll ">
-							<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/8.jpg') }}" alt="">
+							{% if candidato.imagem is empty %}
+								<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/8.jpg') }}" alt="">
+							{% else %}
+								<img class="team-member-image" src="{{ asset('uploads/' ~ candidato.imagem ) }}" alt="">
+							{% endif %}
 							<div class="team-member-info">
 								<h2>{{ candidato }}</h2>
 								<span class="job">{{ candidato.partido.sigla }}</span>
@@ -71,7 +79,11 @@
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<!-- Team Member -->
 						<div class="team-member animate-onscroll ">
-							<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/8.jpg') }}" alt="">
+							{% if proposta.candidato.partido.imagem is empty %}
+								<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/8.jpg') }}" alt="">
+							{% else %}
+								<img class="team-member-image" src="{{ asset('uploads/' ~ proposta.candidato.partido.imagem ) }}" alt="">
+							{% endif %}
 							<div class="team-member-info">
 								<h2>{{ proposta.candidato }}</h2>
 								<span class="job">{{ proposta.texto | slice(1,35) ~ '...' }}</span>

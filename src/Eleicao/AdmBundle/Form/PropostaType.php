@@ -11,9 +11,9 @@ class PropostaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titulo')
-            ->add('texto','textarea',array('attr' => array('cols' => '5', 'rows' => '5')))
-            ->add('candidato')
+            ->add('titulo','text',array('attr' => array('class' => 'span6', 'cols' => '5', 'rows' => '5')))
+            ->add('candidato',null,array('attr' => array('class' => 'span6', 'cols' => '5', 'rows' => '5')))
+            ->add('texto','textarea',array('attr' => array('class' => 'span6', 'cols' => '5', 'rows' => '5')))
         ;
     }
 

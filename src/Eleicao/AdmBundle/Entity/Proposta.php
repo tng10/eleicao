@@ -36,7 +36,7 @@ class Proposta
     private $texto;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Candidato", inversedBy="propostas")
+     * @ORM\ManyToOne(targetEntity="Candidato", inversedBy="propostas", cascade={"all"})
      * @ORM\JoinColumn(name="candidato_id", referencedColumnName="id")
      */
     protected $candidato;

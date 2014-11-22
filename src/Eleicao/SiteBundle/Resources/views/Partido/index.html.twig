@@ -20,7 +20,11 @@
 				{% for partido in partidos %}
 					<!-- Team Member -->
 					<div class="team-member animate-onscroll big">
-						<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/1.jpg') }}" alt="">
+						{% if partido.imagem is empty %}
+							<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/1.jpg') }}" alt="">
+						{% else %}
+							<img class="team-member-image" src="{{ asset('uploads/' ~ partido.imagem ) }}" alt="">
+						{% endif %}
 						<div class="team-member-info">
 							<h2>{{ partido.sigla }}</h2>
 							<span class="job">{{ partido }}</span>

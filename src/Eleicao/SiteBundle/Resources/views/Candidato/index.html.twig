@@ -20,7 +20,11 @@
 				{% for candidato in candidatos %}
 					<!-- Team Member -->
 					<div class="team-member animate-onscroll big">
-						<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/1.jpg') }}" alt="">
+						{% if candidato.imagem is empty %}
+							<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/1.jpg') }}" alt="">
+						{% else %}
+							<img class="team-member-image" src="{{ asset('uploads/' ~ candidato.imagem ) }}" alt="">
+						{% endif %}
 						<div class="team-member-info">
 							<h2>{{ candidato }}</h2>
 							<span class="job">{{ candidato.cargo }}</span>

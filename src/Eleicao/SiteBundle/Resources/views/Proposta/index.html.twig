@@ -20,7 +20,11 @@
 				{% for proposta in propostas %}
 					<!-- Team Member -->
 					<div class="team-member animate-onscroll big">
-						<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/1.jpg') }}" alt="">
+						{% if proposta.candidato.imagem is empty %}
+							<img class="team-member-image" src="{{ asset('bundles/eleicaosite/img/team/1.jpg') }}" alt="">
+						{% else %}
+							<img class="team-member-image" src="{{ asset('uploads/' ~ proposta.candidato.imagem ) }}" alt="">
+						{% endif %}
 						<div class="team-member-info">
 							<h2>{{ proposta }}</h2>
 							<span class="job">{{ proposta.candidato }}</span>

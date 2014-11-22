@@ -11,8 +11,8 @@ class CandidatoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nome')
-            ->add('numero')
+            ->add('nome','text',array('attr' => array('class' => 'span6')))
+            ->add('numero',null,array('attr' => array('class' => 'span6')))
             ->add('cargo','choice',
                 array(
                     'choices'=>
@@ -20,11 +20,13 @@ class CandidatoType extends AbstractType
                         array(
                             'Presidência da República' => 'Presidência da República'
                         )
-                    )
+                    ),
+                    'attr' => array('class' => 'span6', 'cols' => '5', 'rows' => '5')
                 )
             )
-            ->add('sobre')
-            ->add('partido')
+            ->add('sobre','textarea',array('attr' => array('class' => 'span6', 'cols' => '5', 'rows' => '5')))
+            ->add('partido',null,array('attr' => array('class' => 'span6', 'cols' => '5', 'rows' => '5')))
+            ->add('imagem','file')
         ;
     }
 

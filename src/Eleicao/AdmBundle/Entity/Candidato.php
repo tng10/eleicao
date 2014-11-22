@@ -51,13 +51,20 @@ class Candidato
     private $numero;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Partido", inversedBy="candidatos")
+     * @var string
+     *
+     * @ORM\Column(name="imagem", type="string", length=32)
+     */
+    private $imagem;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Partido", inversedBy="candidatos", cascade={"all"})
      * @ORM\JoinColumn(name="partido_id", referencedColumnName="id")
      */
     protected $partido;
 
     /**
-     * @ORM\OneToMany(targetEntity="Proposta", mappedBy="candidato")
+     * @ORM\OneToMany(targetEntity="Proposta", mappedBy="candidato", cascade={"all"})
      */
     protected $propostas;
 
@@ -173,6 +180,29 @@ class Candidato
     public function getNumero()
     {
         return $this->numero;
+    }
+
+    /**
+     * Set imagem
+     *
+     * @param string $imagem
+     * @return Partido
+     */
+    public function setImagem($imagem)
+    {
+        $this->imagem = $imagem;
+
+        return $this;
+    }
+
+    /**
+     * Get imagem
+     *
+     * @return string 
+     */
+    public function getImagem()
+    {
+        return $this->imagem;
     }
 
     /**

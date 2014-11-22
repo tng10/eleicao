@@ -41,6 +41,13 @@ class PartidoController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $imagem = $form['imagem']->getData();
+            $ext = $imagem->getClientOriginalExtension();
+            $nomeImagem = md5($imagem->getPathName()).'.'.$ext;
+            $imagem->move('uploads', $nomeImagem);
+            $entity->setImagem($nomeImagem);
+
             $em->persist($entity);
             $em->flush();
 
@@ -164,8 +171,13 @@ class PartidoController extends Controller
                 throw $this->createNotFoundException('Não foi possível encontrar este partido.');
             }
 
+            $nomeImagem = $entity->getImagem();
+
             $em->remove($entity);
             $em->flush();
+
+            $uploads = $this->get('kernel')->getRootDir().'/../web/uploads/';
+            @unlink($uploads.$nomeImagem);
 
             $this->get('session')->getFlashBag()->add('notice', 'Registro deletado com sucesso!');
         }

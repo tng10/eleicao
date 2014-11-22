@@ -20,7 +20,11 @@
 	{% for candidato in candidatos %}
 
 		{% for v in candidato.votacoes %}
-			{% set percentual = (v.votos * 100) / totalVotos %}
+			{% if totalVotos == 0 %}
+				{% set percentual = 0 %}
+			{% else %}
+				{% set percentual = (v.votos * 100) / totalVotos %}
+			{% endif %}
 			
 			<p>{{ candidato ~ ' - ' ~ candidato.partido.sigla }}</p>
 

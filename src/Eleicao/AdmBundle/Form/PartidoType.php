@@ -11,9 +11,10 @@ class PartidoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('sigla')
-            ->add('nome')
-            ->add('sobre')
+            ->add('sigla','text',array('attr' => array('class' => 'span6')))
+            ->add('nome','text',array('attr' => array('class' => 'span6')))
+            ->add('sobre','textarea',array('attr' => array('class' => 'span6', 'cols' => '5', 'rows' => '5')))
+            ->add('imagem','file')
         ;
     }
 
