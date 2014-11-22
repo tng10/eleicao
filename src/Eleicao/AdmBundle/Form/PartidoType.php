@@ -14,7 +14,7 @@ class PartidoType extends AbstractType
             ->add('sigla','text',array('attr' => array('class' => 'span6')))
             ->add('nome','text',array('attr' => array('class' => 'span6')))
             ->add('sobre','textarea',array('attr' => array('class' => 'span6', 'cols' => '5', 'rows' => '5')))
-            ->add('imagem','file')
+            ->add('imagem','file',array('data_class'=>null, 'required'=>false))
         ;
     }
 

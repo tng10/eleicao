@@ -17,10 +17,12 @@
                 <th>Sobre o partido</th>
                 <td>{{ entity.sobre }}</td>
             </tr>
-            <tr>
-                <th>Logo</th>
-                <td><img height="10%" width="10%" src="{{ asset('uploads/' ~ entity.imagem) }}" /></td>
-            </tr>
+            {% if entity.imagem %}
+                <tr>
+                    <th>Logo</th>
+                    <td><img height="10%" width="10%" src="{{ asset('uploads/' ~ entity.imagem) }}" /></td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
 

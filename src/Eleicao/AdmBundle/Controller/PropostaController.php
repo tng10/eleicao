@@ -138,7 +138,7 @@ class PropostaController extends Controller
             $em->flush();
             $this->get('session')->getFlashBag()->add('notice', 'Edição feita com sucesso!');
 
-            return $this->redirect($this->generateUrl('proposta_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('proposta_show', array('id' => $id)));
         }
 
         return $this->render('EleicaoAdmBundle:Proposta:edit.html.twig', array(

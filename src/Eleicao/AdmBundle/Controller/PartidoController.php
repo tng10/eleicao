@@ -43,10 +43,15 @@ class PartidoController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             $imagem = $form['imagem']->getData();
-            $ext = $imagem->getClientOriginalExtension();
-            $nomeImagem = md5($imagem->getPathName()).'.'.$ext;
-            $imagem->move('uploads', $nomeImagem);
-            $entity->setImagem($nomeImagem);
+
+            if ($imagem)
+            {
+                $imagem = $editForm['imagem']->getData();
+                $ext = $imagem->getClientOriginalExtension();
+                $nomeImagem = md5($imagem->getPathName()).'.'.$ext;
+                $imagem->move('uploads', $nomeImagem);
+                $entity->setImagem($nomeImagem);
+            }            
 
             $em->persist($entity);
             $em->flush();
@@ -136,16 +141,42 @@ class PartidoController extends Controller
             throw $this->createNotFoundException('Não foi possível encontrar este partido.');
         }
 
+        $nomeImagemAtual = $entity->getImagem();
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new PartidoType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
+
+            if ($nomeImagemAtual != $entity->getImagem())
+            {
+            
+                $imagem = $editForm['imagem']->getData();
+
+                if ($imagem)
+                {
+                    $imagem = $editForm['imagem']->getData();
+                    $ext = $imagem->getClientOriginalExtension();
+                    $nomeImagem = md5($imagem->getPathName()).'.'.$ext;
+                    $imagem->move('uploads', $nomeImagem);
+                    $entity->setImagem($nomeImagem);
+
+                    $uploads = $this->get('kernel')->getRootDir().'/../web/uploads/';
+                    @unlink($uploads.$nomeImagemAtual);
+                }
+                else
+                {
+                    $entity->setImagem($nomeImagemAtual);                    
+                }
+            }
+
+
             $em->persist($entity);
             $em->flush();
             $this->get('session')->getFlashBag()->add('notice', 'Edição feita com sucesso!');
 
-            return $this->redirect($this->generateUrl('partido_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('partido_show', array('id' => $id)));
         }
 
         return $this->render('EleicaoAdmBundle:Partido:edit.html.twig', array(

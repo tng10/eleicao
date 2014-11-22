@@ -29,6 +29,12 @@
                 <th>Sobre o candidato</th>
                 <td>{{ entity.sobre }}</td>
             </tr>
+            {% if entity.imagem %}
+                <tr>
+                    <th>Foto</th>
+                    <td><img height="10%" width="10%" src="{{ asset('uploads/' ~ entity.imagem) }}" /></td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
 
