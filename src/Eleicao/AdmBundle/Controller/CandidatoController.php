@@ -54,7 +54,7 @@ class CandidatoController extends Controller
 
             if ($imagem)
             {
-                $imagem = $editForm['imagem']->getData();
+                $imagem = $form['imagem']->getData();
                 $ext = $imagem->getClientOriginalExtension();
                 $nomeImagem = md5($imagem->getPathName()).'.'.$ext;
                 $imagem->move('uploads', $nomeImagem);
