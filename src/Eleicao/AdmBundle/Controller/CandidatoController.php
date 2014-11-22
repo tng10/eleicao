@@ -167,8 +167,8 @@ class CandidatoController extends Controller
 
         if ($editForm->isValid()) {
 
-            $entities = $em->getRepository('EleicaoAdmBundle:Candidato')->findBy(array('partido' => $entity->getPartido()));
-            if ($entities)
+            $partido = $em->getRepository('EleicaoAdmBundle:Candidato')->findOneBy(array('partido' => $entity->getPartido()));
+            if ($partido->getId() != $id)
             {
                 $this->get('session')->getFlashBag()->add('notice', 'Não foi possível editar, pois já existe um candidato vinculado a este partido!');
                 return $this->redirect($this->generateUrl('candidato'));
